@@ -27,7 +27,7 @@ class Student
     end
 
     def self.is_git?(git)
-        git.match(/^https:\/\/github\.com\/[A-Za-z\d]+$/)  git.match(/^[A-Za-z\d]+$/)
+        git.match(/^https:\/\/github\.com\/[A-Za-z\d]+$/) || git.match(/^[A-Za-z\d]+$/)
     end
 
     def self.is_phone_number?(phone_number)
@@ -39,7 +39,7 @@ class Student
     end
 
     def has_contact?
-        !phone.nil?  !telegram.nil?  !mail.nil?
+        !phone.nil? || !telegram.nil? || !mail.nil?
     end
 
     def validate
@@ -54,37 +54,37 @@ class Student
     end
 
     def id=(id)
-        raise ArgumentError unless id.nil?  Student.is_id?(id)
+        raise ArgumentError unless id.nil? || Student.is_id?(id)
         @id = id
     end
 
     def last_name=(last_name)
-        raise ArgumentError unless last_name.nil?  Student.is_name?(last_name)
+        raise ArgumentError unless last_name.nil? || Student.is_name?(last_name)
         @last_name = last_name
     end
 
     def first_name=(first_name)
-        raise ArgumentError unless first_name.nil?  Student.is_name?(first_name)
+        raise ArgumentError unless first_name.nil? || Student.is_name?(first_name)
         @first_name = first_name
     end
 
     def middle_name=(middle_name)
-        raise ArgumentError unless middle_name.nil?  Student.is_name?(middle_name)
+        raise ArgumentError unless middle_name.nil? || Student.is_name?(middle_name)
         @middle_name = middle_name
     end
 
     def phone_number=(phone_number)
-        raise ArgumentError unless phone_number.nil?  Student.is_phone_number?(phone_number)
+        raise ArgumentError unless phone_number.nil? || Student.is_phone_number?(phone_number)
         @phone_number = phone_number
     end
 
     def telegram=(telegram)
-        raise ArgumentError unless telegram.nil?  Student.is_telegram?(telegram)
+        raise ArgumentError unless telegram.nil? || Student.is_telegram?(telegram)
         @telegram = telegram
     end
 
     def mail=(mail)
-        raise ArgumentError unless mail.nil?  Student.is_mail?(mail)
+        raise ArgumentError unless mail.nil? || Student.is_mail?(mail)
         @mail = mail
     end
 
@@ -100,5 +100,19 @@ class Student
         res += " почта: #{mail}" unless mail.nil?
         res += " git: #{git}" unless git.nil?
         res
+    end
+    
+    def getInfo
+        info = "#{last_name} #{first_name[0]}. #{middle_name[0]}."
+        info += if !phone_number.nil? then
+                    "номер телефона: #{phone_number}"
+                elsif !telegram.nil?
+                    "телеграм: #{telegram}"
+                elsif !mail.nil?
+                    "почта: #{mail}"
+                else
+                    "" 
+                end
+        info += "git: #{git}"
     end
 end
