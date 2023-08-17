@@ -1,5 +1,18 @@
-class Data_list
+class Data_table
     def initialize(data)
-      @data = data
+        @data = data
+    end    
+
+    def get_element(row, col)
+        @data[row][col]
     end
-end 
+
+    def get_rows_count
+        @data.size
+    end    
+
+    def get_colums_count
+        @data[0].size
+    end    
+    
+end
