@@ -1,17 +1,18 @@
-require_relative 'data_list'
+require_relative 'Data_list'
 
 class Data_list_student_short < Data_list
+  attr_reader :column_names, :selected
 
-  def column_count
-    @data[0].instance_variables.count
+  def initialize(data)
+    super
   end
 
-  def select(number)
-    @selected << data[:data][number]
+  def column_count
+    @data[0].size
   end
 
   def get_names
-    ["number", "fullname", "git", "contact"]
+    %w[git contact short_name]
   end
 
   def get_data(obj)
