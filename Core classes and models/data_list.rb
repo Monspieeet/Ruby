@@ -1,3 +1,4 @@
+
 class Data_list
   attr_reader :data, :selected
 
