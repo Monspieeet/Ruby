@@ -1,18 +1,24 @@
-class Data_table
+class Data_list
+    attr_reader :data
+
     def initialize(data)
-        @data = data
-    end    
-
-    def get_element(row, col)
-        @data[row][col]
+      @data = data
+      @selected = []
     end
-
-    def get_rows_count
-        @data.size
-    end    
-
-    def get_colums_count
-        @data[0].size
-    end    
-    
-end
+  
+    def select(number)
+      @selected << @data[number]
+    end
+  
+    def get_selected
+      @selected.map(&:id)
+    end
+  
+    def get_names
+      raise NotImplementedError
+    end
+  
+    def get_data
+      raise NotImplementedError
+    end
+end 
