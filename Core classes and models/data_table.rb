@@ -1,7 +1,7 @@
 class Data_table
     def initialize(data)
-        @data = data
-    end    
+      @data = data
+    end
 
     def get_element(row, col)
         @data[row][col]
@@ -9,10 +9,9 @@ class Data_table
 
     def get_rows_count
         @data.size
-    end    
+    end
 
-    def get_colums_count
+    def get_columns_count
         @data[0].size
-    end    
-    
+    end
 end
