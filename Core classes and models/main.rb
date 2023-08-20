@@ -21,16 +21,21 @@ obj_arr = [student1.to_h, student3.to_h]
 data1 = Data_list_student_short.new(data:obj_arr)
 
 
-@db_host  = "localhost"
-@db_user  = "root"
-@db_pass  = "1111"
-@db_name = "students"
+#@db_host  = "localhost"
+#@db_user  = "root"
+#@db_pass  = "12345"
+#@db_name = "students"
 
-client = Mysql2::Client.new(:host => @db_host, :username => @db_user, :password => @db_pass, :database => @db_name)
+#client = Mysql2::Client.new(:host => @db_host, :username => @db_user, :password => @db_pass, :database => @db_name)
 
-results = client.query("SELECT * FROM student", symbolize_keys: true)
+#results = client.query("SELECT * FROM student", symbolize_keys: true)
 
-results.each { |r|
-  puts Student.new(**r)
-  puts
-}
+#results.each { |r|
+#puts Student.new(**r)
+#puts
+#}
+
+app = FXApp.new
+Window.new(app)
+app.create
+app.run
