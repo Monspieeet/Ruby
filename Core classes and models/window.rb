@@ -235,8 +235,3 @@ class Student_list_view < FXMainWindow
     show(PLACEMENT_SCREEN)
   end
 end
-
-app = FXApp.new
-Window.new(app)
-app.create
-app.run
