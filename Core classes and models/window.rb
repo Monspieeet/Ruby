@@ -1,7 +1,7 @@
 require 'fox16'
 include Fox
 
-class Window < FXMainWindow
+class Student_list_view < FXMainWindow
   private
   attr_accessor :add_button, :chg_button, :del_button, :upd_button, :refresh, :page_count_label
   attr_writer :cur_page
