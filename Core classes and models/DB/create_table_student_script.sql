@@ -7,6 +7,6 @@ create table if not exists student(
     midle_name VARCHAR(50) not null,
     phone_number VARCHAR(50),
     mail VARCHAR(50),
-    telegramg VARCHAR(50),
+    telegram VARCHAR(50),
     git VARCHAR(50)
     );
